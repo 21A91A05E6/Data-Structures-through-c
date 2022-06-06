@@ -1,0 +1,39 @@
+#include<stdio.h>
+void main()
+{
+	int i,arr[100],n;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	selection_sort(arr,n);
+	for(i=0;i<n;i++)
+	{
+		printf("%d ",arr[i]);
+	}
+}
+int max(int *arr,int n)
+{
+	int j,ind=0,maxi=arr[0];
+	for(j=0;j<=n;j++)
+	{
+		if(maxi<arr[j])
+		{
+			maxi=arr[j];
+			ind=j;
+		}
+	}
+	return ind;
+}
+int selection_sort(int *arr,int n)
+{
+	int i,maxi,temp;
+	for(i=n-1;i>=0;i--)
+	{
+		maxi=max(arr,i);
+		temp=arr[i];
+		arr[i]=arr[maxi];
+		arr[maxi]=temp;
+	}
+}
