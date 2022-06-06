@@ -1,0 +1,39 @@
+#include<stdio.h>
+int min(int *arr,int i,int n)
+{
+	int j,ind=i,mini=arr[i];
+	for(j=i;j<n;j++)//0
+	{
+		if(mini>arr[j])//
+		{
+			mini=arr[j];
+			ind=j;
+		}
+	}
+	return ind;
+}
+void selection_sort(int *arr,int n)
+{
+	int i,mini,temp;
+	for(i=0;i<n;i++)
+	{
+		mini=min(arr,i,n);
+		temp=arr[i];/
+		arr[i]=arr[mini];
+		arr[mini]=temp;
+	}
+}
+int main()
+{
+	int arr[100],i,n;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);//85 20 66 33 54 35 22 11 9 67
+	}
+	selection_sort(arr,n);
+	for(i=0;i<n;i++)
+	{
+		printf("%d ",arr[i]);
+	}
+}
